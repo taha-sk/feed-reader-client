@@ -1,0 +1,10 @@
+<div class="card-header">
+    <h4 class="my-0 font-weight-normal">{{ widget?.widgetTitle }}</h4>
+</div>
+<div class="card-body">
+    <ul class="list-unstyled mt-3 mb-4">
+        <li *ngFor="let item of feedResponse?.feedItems">
+            <a [href]="item?.link" target="_blank">{{ item?.title }}</a>
+        </li>
+    </ul>
+</div>
