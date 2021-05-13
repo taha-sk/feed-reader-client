@@ -14,6 +14,8 @@ import { httpInterceptorProviders } from './interceptors';
 import { ManageWidgetsComponent } from './manage-widgets/manage-widgets.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { WidgetDeckComponent } from './widget-deck/widget-deck.component';
+import { WidgetListComponent } from './widget-list/widget-list.component';
+import { AddWidgetComponent } from './add-widget/add-widget.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { WidgetDeckComponent } from './widget-deck/widget-deck.component';
     WidgetsComponent,
     ManageWidgetsComponent,
     SearchBarComponent,
-    WidgetDeckComponent
+    WidgetDeckComponent,
+    WidgetListComponent,
+    AddWidgetComponent
   ],
   imports: [
     BrowserModule,

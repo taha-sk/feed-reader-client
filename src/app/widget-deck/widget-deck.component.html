@@ -24,4 +24,8 @@
             {{ feedResponse.feedItems[0].title }}, see more in <cite title="Source"><a [href]="feedResponse.feedItems[0].link" target="_blank">Brainy Quote</a></cite>
         </figcaption>
     </figure>
+    <!-- Error Handling -->
+    <div class="mt-3 mb-3" *ngIf="errorResponse">
+        <div class="alert alert-danger" role="alert">{{ errorResponse.error_message }}</div>
+    </div>
 </div>

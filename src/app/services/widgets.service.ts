@@ -1,8 +1,10 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { config } from 'src/AppConfig';
 import { HMPagination } from '../types/HMPagination';
+import { Widget } from '../types/Widget';
+import { WidgetType } from '../types/WidgetType';
 import { HttpErrorHandlerService } from './http-error-handler.service';
 
 @Injectable({
@@ -22,6 +24,28 @@ export class WidgetsService {
     .pipe(
       catchError(this.httpErrorHandler.handleError)
     );
+  }
+
+  createWidget(widget: Widget, widgetsPath?: string){
+    return this.http.post<Widget>(widgetsPath ? widgetsPath : this.widgetsPath, widget)
+    .pipe(
+      catchError(this.httpErrorHandler.handleError)
+    );
+  }
+
+  createWidgetTypeAssociation(widget: Widget, widgetType: WidgetType){
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'text/uri-list'
+      })
+    };
+    
+    return this.http.put<Widget>(widget._links.widgetType.href, widgetType._links.self.href, httpOptions)
+    .pipe(
+      catchError(this.httpErrorHandler.handleError)
+    );
+    
   }
   
 }

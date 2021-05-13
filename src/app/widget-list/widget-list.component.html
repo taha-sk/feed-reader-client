@@ -1,0 +1,33 @@
+<h3>Widgets</h3>
+<!-- Table -->
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th id="colWidgetTitle" scope="col">Widget Title</th>
+            <th id="colWidgetValue" scope="col">Widget Source</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let widget of paginatedWidgets?._embedded?.widgets; index as i">
+            <td scope="row">{{ i + 1 }}</td>
+            <td id="rowWidgetTitle">{{ widget.widgetTitle }}</td>
+            <td id="rowWidgetValue">{{ widget.widgetValue }}</td>
+            <td><button id="deleteWidgetBtn" type="button" class="btn btn-primary">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="addWidgetBtn" type="button" class="btn btn-primary mt-3 mb-3" (click)="addWidget()">
+    Add Widget
+</button>
+
+<!-- Errors -->
+<div class="mt-3 mb-3" *ngIf="paginatedWidgets?._embedded?.widgets?.length === 0 && !errorResponse">
+  <div class="alert alert-primary" role="alert">No widgets found. You can add widgets by clicking Add Widget button!</div>
+</div>
+
+<div class="mt-3 mb-3" *ngIf="errorResponse">
+    <div class="alert alert-danger" role="alert">{{ errorResponse.error_message }}</div>
+</div>
