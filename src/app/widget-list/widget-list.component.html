@@ -14,7 +14,7 @@
             <td scope="row">{{ i + 1 }}</td>
             <td id="rowWidgetTitle">{{ widget.widgetTitle }}</td>
             <td id="rowWidgetValue">{{ widget.widgetValue }}</td>
-            <td><button id="deleteWidgetBtn" type="button" class="btn btn-primary">Delete</button></td>
+            <td><button id="deleteWidgetBtn" type="button" class="btn btn-primary" (click)="deleteWidget(widget)">Delete</button></td>
         </tr>
     </tbody>
 </table>

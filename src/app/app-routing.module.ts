@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddWidgetComponent } from './add-widget/add-widget.component';
+import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
         canActivate: [AuthorizationGuard],
         children: [
           { path: 'add-widget', component: AddWidgetComponent },
+          { path: 'delete-widget/:id', component: DeleteWidgetComponent },
           { path: '', component: WidgetListComponent }
         ] 
        },

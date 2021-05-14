@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { WidgetsService } from '../services/widgets.service';
 import { HMPagination } from '../types/HMPagination';
 import { HttpClientError } from '../types/HttpClientError';
+import { Widget } from '../types/Widget';
 
 @Component({
   selector: 'app-widget-list',
@@ -34,6 +35,10 @@ export class WidgetListComponent implements OnInit {
 
   addWidget(){
     this.router.navigate(['./add-widget'], { relativeTo: this.route });
+  }
+
+  deleteWidget(widget: Widget){
+    this.router.navigate(['./delete-widget', widget.id], { relativeTo: this.route });
   }
 
 }

@@ -16,6 +16,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { WidgetDeckComponent } from './widget-deck/widget-deck.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import { AddWidgetComponent } from './add-widget/add-widget.component';
+import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddWidgetComponent } from './add-widget/add-widget.component';
     SearchBarComponent,
     WidgetDeckComponent,
     WidgetListComponent,
-    AddWidgetComponent
+    AddWidgetComponent,
+    DeleteWidgetComponent
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,13 @@ export class WidgetsService {
     );
   }
 
+  getWidget(widgetId: string){
+    return this.http.get<Widget>(this.widgetsPath + "/" + widgetId )
+    .pipe(
+      catchError(this.httpErrorHandler.handleError)
+    );
+  }
+
   createWidget(widget: Widget, widgetsPath?: string){
     return this.http.post<Widget>(widgetsPath ? widgetsPath : this.widgetsPath, widget)
     .pipe(
@@ -46,6 +53,13 @@ export class WidgetsService {
       catchError(this.httpErrorHandler.handleError)
     );
     
+  }
+
+  deleteWidget(widgetPath: string){
+    return this.http.delete(widgetPath)
+    .pipe(
+      catchError(this.httpErrorHandler.handleError)
+    );
   }
   
 }

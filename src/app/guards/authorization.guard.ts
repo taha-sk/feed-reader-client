@@ -20,7 +20,13 @@ export class AuthorizationGuard implements CanActivate {
       if (tokenExpDate) {
         const expDate = DateTime.fromISO(tokenExpDate);
         if(DateTime.now() < expDate){
-          return admin === "true"; 
+
+          if(admin === "true"){
+            return true;
+          }else{
+            return this.router.parseUrl('/');
+          }
+          
         }else{
           //Logout
           localStorage.clear();

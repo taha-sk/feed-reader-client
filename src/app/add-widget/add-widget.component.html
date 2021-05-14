@@ -45,12 +45,16 @@
     (click)="addWidget()" *ngIf="feedResponse" [disabled]="!widgetTitle.valid">Add Widget</button>
 </div>
 
+<!-- Handle Validation Errors -->
+<div class="mb-3" *ngFor="let errorItem of errorResponse?.errors">
+      <div class="alert alert-danger" role="alert">{{ errorItem.message }}</div>
+</div>
+
 <!-- Errors -->
 <div class="mt-3 mb-3" *ngIf="paginatedWidgetTypes?._embedded?.widgetTypes?.length === 0 && !errorResponse">
     <div class="alert alert-primary" role="alert">No widget types found. You need to define widget types!</div>
-  </div>
+</div>
   
-  <div class="mt-3 mb-3" *ngIf="errorResponse">
-      <div class="alert alert-danger" role="alert">{{ errorResponse.error_message }}</div>
-  </div>
-
+<div class="mt-3 mb-3" *ngIf="errorResponse && errorResponse.errors === undefined">
+    <div class="alert alert-danger" role="alert">{{ errorResponse.error_message }}</div>
+</div>
