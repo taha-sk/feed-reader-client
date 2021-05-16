@@ -30,20 +30,21 @@
   </div>
 
 <!-- Widget Title -->
-<form *ngIf="feedResponse">
+<form *ngIf="feedResponse" [formGroup]="widgetForm" (ngSubmit)="addWidget()">
     <div class="form-group mt-3 mb-3">
         <label for="widgetTitleInpt">Widget Title</label>
-        <input type="text" class="form-control" id="widgetTitleInpt" [formControl]="widgetTitle" placeholder="Widget Title">
+        <input type="text" class="form-control" id="widgetTitleInpt" formControlName="widgetTitle" placeholder="Widget Title">
     </div>
-</form>
+
 
 <!-- Buttons -->
 <div class="d-flex">
     <button id="cancelBtn" type="button" class="btn btn-secondary mt-3 mb-3 mr-auto"
     (click)="close()">Cancel</button>
-    <button id="addWidgetBtn" type="button" class="btn btn-primary mt-3 mb-3"
-    (click)="addWidget()" *ngIf="feedResponse" [disabled]="!widgetTitle.valid">Add Widget</button>
+    <button id="addWidgetBtn" type="submit" class="btn btn-primary mt-3 mb-3"
+    *ngIf="feedResponse" [disabled]="!widgetForm.valid">Add Widget</button>
 </div>
+</form>
 
 <!-- Handle Validation Errors -->
 <div class="mb-3" *ngFor="let errorItem of errorResponse?.errors">

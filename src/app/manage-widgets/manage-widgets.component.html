@@ -1,4 +1,4 @@
 <h2>Manage Widgets</h2>
-<div class="container mt-3">
-    <router-outlet></router-outlet>
+<div [@routerAnimations]="prepareRoute(outlet)" class="container mt-3">
+    <router-outlet #outlet="outlet"></router-outlet>
 </div>

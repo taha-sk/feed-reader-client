@@ -1,6 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FeedService } from '../services/feed.service';
 import { WidgetTypesService } from '../services/widget-types.service';
@@ -29,7 +29,12 @@ export class AddWidgetComponent implements OnInit {
   feedErrorResponse: HttpClientError | undefined;
   feedResponse: FeedResponse | undefined;
 
-  widgetTitle = new FormControl('', Validators.required);
+  widgetForm = this.formBuilder.group({
+    widgetTitle: ['', Validators.required]
+  });
+
+  //Getters are necessary for form validation
+  get widgetTitle() { return this.widgetForm.get('widgetTitle'); }
 
   isVerifying: boolean = false;
 
@@ -39,7 +44,8 @@ export class AddWidgetComponent implements OnInit {
     private router: Router,
     private widgetTypesService: WidgetTypesService,
     private feedService: FeedService,
-    private widgetsService: WidgetsService
+    private widgetsService: WidgetsService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -84,7 +90,7 @@ export class AddWidgetComponent implements OnInit {
         this.isVerifying = false;
       }else{
         this.feedResponse = data as FeedResponse;
-        this.widgetTitle.setValue(this.feedResponse.feedTitle);
+        this.widgetForm.patchValue({ widgetTitle: this.feedResponse.feedTitle })
         this.widgetValue.disable();
         this.isVerifying = false;
       }
@@ -92,23 +98,22 @@ export class AddWidgetComponent implements OnInit {
   }
 
   addWidget(){
-    this.widgetsService.createWidget({widgetTitle: this.widgetTitle.value, widgetValue: this.widgetValue.value} as Widget).subscribe((data:any) => {
-      if(data?.error_message){
+    this.widgetsService.createWidget({ widgetTitle: this.widgetTitle?.value, widgetValue: this.widgetValue.value } as Widget).subscribe((data: any) => {
+      if (data?.error_message) {
         this.errorResponse = data as HttpClientError;
-      }else{
+      } else {
         this.createdWidget = data as Widget;
-        if(this.selectedWidgetType){
-          this.widgetsService.createWidgetTypeAssociation(this.createdWidget, this.selectedWidgetType).subscribe((data:any) => {
-            if(data?.error_message){
+        if (this.selectedWidgetType) {
+          this.widgetsService.createWidgetTypeAssociation(this.createdWidget, this.selectedWidgetType).subscribe((data: any) => {
+            if (data?.error_message) {
               this.errorResponse = data as HttpClientError;
-            }else{
+            } else {
               this.close();
             }
           });
         }
       }
     });
-
   }
 
 }

@@ -6,7 +6,7 @@
         <input type="text" id="inputUsername" class="form-control" formControlName="username" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid || ip.length === 0">Sign in</button>
         <!-- Handle Errors -->
         <div class="mt-3 mb-3" *ngIf="errorResponse">
             <div class="alert alert-danger" role="alert">{{ errorResponse.error_message }}</div>

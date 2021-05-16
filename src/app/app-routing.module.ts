@@ -20,9 +20,9 @@ const routes: Routes = [
         component: ManageWidgetsComponent,
         canActivate: [AuthorizationGuard],
         children: [
-          { path: 'add-widget', component: AddWidgetComponent },
-          { path: 'delete-widget/:id', component: DeleteWidgetComponent },
-          { path: '', component: WidgetListComponent }
+          { path: 'add-widget', component: AddWidgetComponent, data: {animation: 'AddWidget'} },
+          { path: 'delete-widget/:id', component: DeleteWidgetComponent, data: {animation: 'DeleteWidget'} },
+          { path: '', component: WidgetListComponent, data: {animation: 'WidgetList'} }
         ] 
        },
        { path: '', component: WidgetsComponent }
