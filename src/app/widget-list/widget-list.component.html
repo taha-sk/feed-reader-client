@@ -19,11 +19,15 @@
     </tbody>
 </table>
 
-<button id="addWidgetBtn" type="button" class="btn btn-primary mt-3 mb-3" (click)="addWidget()">
+<button id="addWidgetBtn" type="button" class="btn btn-primary mt-3 mb-3" [disabled]="!isWidgetLimit" (click)="addWidget()">
     Add Widget
 </button>
 
 <!-- Errors -->
+<div class="mt-3 mb-3" *ngIf="!isWidgetLimit">
+    <div class="alert alert-primary" id="widgetLimit" role="alert">You've reached to max widget limit 10. You can add widgets by removing existing ones.</div>
+  </div>
+
 <div class="mt-3 mb-3" *ngIf="paginatedWidgets?._embedded?.widgets?.length === 0 && !errorResponse">
   <div class="alert alert-primary" role="alert">No widgets found. You can add widgets by clicking Add Widget button!</div>
 </div>

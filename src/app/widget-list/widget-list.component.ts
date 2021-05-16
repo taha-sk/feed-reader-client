@@ -15,6 +15,8 @@ export class WidgetListComponent implements OnInit {
   errorResponse: HttpClientError | undefined;
   paginatedWidgets: HMPagination | undefined;
 
+  isWidgetLimit: boolean | undefined ;
+
   constructor(
     private widgetsService: WidgetsService,
     private router: Router,
@@ -28,6 +30,7 @@ export class WidgetListComponent implements OnInit {
         this.errorResponse = data as HttpClientError;
       }else{
         this.paginatedWidgets = data as HMPagination;
+        this.isWidgetLimit = this.paginatedWidgets._embedded?.widgets?.length < 10;
       }
     });
 

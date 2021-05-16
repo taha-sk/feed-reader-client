@@ -45,6 +45,7 @@ export class WidgetDeckComponent implements OnInit {
 
   refresh(){
     this.feedResponse = undefined;
+    this.errorResponse = undefined;
     const options = this.widget?.widgetValue ? { params: new HttpParams().set('feedUrl', this.widget.widgetValue) } : undefined;
     this.feedService.getFeed(options).subscribe((data:any) => {
       if(data?.error_message){

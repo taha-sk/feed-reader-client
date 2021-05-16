@@ -30,8 +30,8 @@
   </div>
 
 <!-- Widget Title -->
-<form *ngIf="feedResponse" [formGroup]="widgetForm" (ngSubmit)="addWidget()">
-    <div class="form-group mt-3 mb-3">
+<form [formGroup]="widgetForm" (ngSubmit)="addWidget()">
+    <div class="form-group mt-3 mb-3" *ngIf="feedResponse" >
         <label for="widgetTitleInpt">Widget Title</label>
         <input type="text" class="form-control" id="widgetTitleInpt" formControlName="widgetTitle" placeholder="Widget Title">
     </div>
