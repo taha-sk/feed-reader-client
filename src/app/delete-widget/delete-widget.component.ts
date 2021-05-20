@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WidgetsService } from '../services/widgets.service';
 import { HttpClientError } from '../types/HttpClientError';
 import { Widget } from '../types/Widget';
