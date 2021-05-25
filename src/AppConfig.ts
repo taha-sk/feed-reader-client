@@ -1,3 +1,3 @@
 export const config = {
-    apiHost: "http://localhost:8080"
+    apiHost: "https://frsapi.herokuapp.com"
 };

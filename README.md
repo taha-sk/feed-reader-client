@@ -7,3 +7,4 @@ The Feed Reader application is a secure web application where you manage feeds i
 Angular, ng-bootstrap, Luxon technologies are used.
 
 You can see this application running on heroku:
+https://frclient.herokuapp.com
