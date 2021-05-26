@@ -1,5 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { config } from 'src/AppConfig';
 import { HMPagination } from '../types/HMPagination';
 import { Widget } from '../types/Widget';
 import { WidgetType } from '../types/WidgetType';
@@ -9,6 +10,7 @@ import { WidgetsService } from './widgets.service';
 describe('WidgetsService', () => {
   let service: WidgetsService;
   let httpTestingController: HttpTestingController;
+  let widgetsPath: string;  
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,6 +18,7 @@ describe('WidgetsService', () => {
     });
     service = TestBed.inject(WidgetsService);
     httpTestingController = TestBed.inject(HttpTestingController);
+    widgetsPath = config.apiHost;
   });
 
   it('should be created', () => {
@@ -31,7 +34,7 @@ describe('WidgetsService', () => {
       expect(data.widgetValue).toEqual(testData.widgetValue);
     });
 
-    const req = httpTestingController.expectOne("http://localhost:8080/api/widgets/1");
+    const req = httpTestingController.expectOne(widgetsPath + "/api/widgets/1");
     expect(req.request.method).toEqual('GET');
     req.flush(testData);
   });
