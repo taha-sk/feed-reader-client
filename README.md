@@ -10,3 +10,8 @@ Angular, ng-bootstrap, Luxon technologies are used.
 
 You can see this application running on heroku:
 https://frclient.herokuapp.com
+
+You can use following users in the application (username/password/role):
+
+- **user/user**/USER
+- **admin/admin**/ADMIN
