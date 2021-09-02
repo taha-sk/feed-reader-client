@@ -1,6 +1,6 @@
 # feed-reader-client
 
-[![Build Status](https://travis-ci.com/taha-sk/feed-reader-client.svg?branch=master)](https://travis-ci.com/taha-sk/feed-reader-client)
+[![Build Status](https://app.travis-ci.com/taha-sk/feed-reader-client.svg?branch=master)](https://app.travis-ci.com/taha-sk/feed-reader-client)
 
 This is the client side of the Feed Reader application. 
 
