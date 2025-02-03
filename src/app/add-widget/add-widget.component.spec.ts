@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { FeedService } from '../services/feed.service';
@@ -21,7 +21,7 @@ describe('AddWidgetComponent', () => {
   let widgetTypesService: WidgetTypesService;
   let feedService: FeedService;
   let widgetsService: WidgetsService;
-  let formBuilder: FormBuilder;
+  let formBuilder: UntypedFormBuilder;
 
   //Stubs for test (Mocks)
   let widgetTypesServiceStub: Partial<WidgetTypesService>;
@@ -58,7 +58,7 @@ describe('AddWidgetComponent', () => {
       providers: [ {provide: Router, useValue: routerSpy}, { provide: WidgetTypesService, useValue: widgetTypesServiceStub }, 
         { provide: FeedService, useValue: feedServiceStub }, 
         { provide: WidgetsService, useValue: widgetsServiceStub },
-        FormBuilder ]
+        UntypedFormBuilder ]
     })
     .compileComponents();
   });
@@ -70,7 +70,7 @@ describe('AddWidgetComponent', () => {
     widgetTypesService = TestBed.inject(WidgetTypesService);
     feedService = TestBed.inject(FeedService);
     widgetsService = TestBed.inject(WidgetsService);
-    formBuilder = TestBed.inject(FormBuilder);
+    formBuilder = TestBed.inject(UntypedFormBuilder);
     fixture.detectChanges();
   });
 

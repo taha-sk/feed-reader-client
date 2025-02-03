@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
@@ -16,7 +16,7 @@ describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
 
   //Services
-  let formBuilder: FormBuilder;
+  let formBuilder: UntypedFormBuilder;
   let authenticationService: AuthenticationService;
   let ipService: IpService;
   let router: Router;
@@ -45,7 +45,7 @@ describe('LoginComponent', () => {
       ],
       declarations: [ LoginComponent ],
       providers: [ {provide: Router, useValue: routerSpy}, { provide: AuthenticationService, useValue: authenticationServiceStub }, 
-        { provide: IpService, useValue: ipServiceStub }, FormBuilder ]
+        { provide: IpService, useValue: ipServiceStub }, UntypedFormBuilder ]
     })
     .compileComponents();
   });
@@ -53,7 +53,7 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    formBuilder = TestBed.inject(FormBuilder);
+    formBuilder = TestBed.inject(UntypedFormBuilder);
     authenticationService = TestBed.inject(AuthenticationService);
     ipService = TestBed.inject(IpService);
     router = TestBed.inject(Router);

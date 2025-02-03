@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { AuthenticationRequest } from '../types/AuthenticationRequest';
 import { AuthenticationResponse } from '../types/AuthenticationResponse';
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   get password() { return this.loginForm.get('password'); }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authenticationService: AuthenticationService,
     private ipService: IpService,
     private router: Router

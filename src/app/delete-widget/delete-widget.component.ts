@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WidgetsService } from '../services/widgets.service';
 import { HttpClientError } from '../types/HttpClientError';
@@ -15,8 +15,8 @@ export class DeleteWidgetComponent implements OnInit {
   widget: Widget | undefined;
   errorResponse: HttpClientError | undefined;
 
-  widgetTitle = new FormControl({ value: '', disabled: true });
-  widgetValue = new FormControl({ value: '', disabled: true });
+  widgetTitle = new UntypedFormControl({ value: '', disabled: true });
+  widgetValue = new UntypedFormControl({ value: '', disabled: true });
 
   constructor(
     private widgetsService: WidgetsService,
