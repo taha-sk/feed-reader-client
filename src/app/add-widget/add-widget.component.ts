@@ -12,9 +12,10 @@ import { Widget } from '../types/Widget';
 import { WidgetType } from '../types/WidgetType';
 
 @Component({
-  selector: 'app-add-widget',
-  templateUrl: './add-widget.component.html',
-  styleUrls: ['./add-widget.component.css']
+    selector: 'app-add-widget',
+    templateUrl: './add-widget.component.html',
+    styleUrls: ['./add-widget.component.css'],
+    standalone: false
 })
 export class AddWidgetComponent implements OnInit {
 

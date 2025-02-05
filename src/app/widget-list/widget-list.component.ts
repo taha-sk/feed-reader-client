@@ -6,9 +6,10 @@ import { HttpClientError } from '../types/HttpClientError';
 import { Widget } from '../types/Widget';
 
 @Component({
-  selector: 'app-widget-list',
-  templateUrl: './widget-list.component.html',
-  styleUrls: ['./widget-list.component.css']
+    selector: 'app-widget-list',
+    templateUrl: './widget-list.component.html',
+    styleUrls: ['./widget-list.component.css'],
+    standalone: false
 })
 export class WidgetListComponent implements OnInit {
 

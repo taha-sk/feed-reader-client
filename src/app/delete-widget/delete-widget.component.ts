@@ -6,9 +6,10 @@ import { HttpClientError } from '../types/HttpClientError';
 import { Widget } from '../types/Widget';
 
 @Component({
-  selector: 'app-delete-widget',
-  templateUrl: './delete-widget.component.html',
-  styleUrls: ['./delete-widget.component.css']
+    selector: 'app-delete-widget',
+    templateUrl: './delete-widget.component.html',
+    styleUrls: ['./delete-widget.component.css'],
+    standalone: false
 })
 export class DeleteWidgetComponent implements OnInit {
 
