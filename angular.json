@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "feed-reader-client:build"
+            "buildTarget": "feed-reader-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "feed-reader-client:build:production"
+              "buildTarget": "feed-reader-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "feed-reader-client:build"
+            "buildTarget": "feed-reader-client:build"
           }
         },
         "test": {
