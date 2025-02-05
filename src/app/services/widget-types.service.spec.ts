@@ -1,9 +1,10 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { HMPagination } from '../types/HMPagination';
 import { WidgetType } from '../types/WidgetType';
 
 import { WidgetTypesService } from './widget-types.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WidgetTypesService', () => {
   let service: WidgetTypesService;
@@ -11,8 +12,9 @@ describe('WidgetTypesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ]
-    });
+    imports: [],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(WidgetTypesService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
