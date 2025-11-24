@@ -11,15 +11,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^19.1.4",
-    "@angular/common": "^19.1.4",
-    "@angular/compiler": "^19.1.4",
-    "@angular/core": "^19.1.4",
-    "@angular/forms": "^19.1.4",
-    "@angular/localize": "^19.1.4",
-    "@angular/platform-browser": "^19.1.4",
-    "@angular/platform-browser-dynamic": "^19.1.4",
-    "@angular/router": "^19.1.4",
+    "@angular/animations": "^20.3.13",
+    "@angular/common": "^20.3.13",
+    "@angular/compiler": "^20.3.13",
+    "@angular/core": "^20.3.13",
+    "@angular/forms": "^20.3.13",
+    "@angular/localize": "^20.3.13",
+    "@angular/platform-browser": "^20.3.13",
+    "@angular/platform-browser-dynamic": "^20.3.13",
+    "@angular/router": "^20.3.13",
     "@ng-bootstrap/ng-bootstrap": "^18.0.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
@@ -30,9 +30,9 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.1.5",
-    "@angular/cli": "^19.1.5",
-    "@angular/compiler-cli": "^19.1.4",
+    "@angular-devkit/build-angular": "^20.3.11",
+    "@angular/cli": "^20.3.11",
+    "@angular/compiler-cli": "^20.3.13",
     "@types/jasmine": "~3.6.0",
     "@types/luxon": "^1.26.5",
     "@types/node": "^12.11.1",
@@ -47,7 +47,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~5.7.3"
+    "typescript": "~5.9.3"
   },
   "engines": {
     "node": "24.11.1",
