@@ -1,4 +1,4 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { config } from 'src/AppConfig';
 import { HMPagination } from '../types/HMPagination';
@@ -6,6 +6,7 @@ import { Widget } from '../types/Widget';
 import { WidgetType } from '../types/WidgetType';
 
 import { WidgetsService } from './widgets.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WidgetsService', () => {
   let service: WidgetsService;
@@ -14,8 +15,9 @@ describe('WidgetsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ]
-    });
+    imports: [],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(WidgetsService);
     httpTestingController = TestBed.inject(HttpTestingController);
     widgetsPath = config.apiHost;

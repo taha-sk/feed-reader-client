@@ -3,12 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { slideInAndOutAnimations } from './router-animations';
 
 @Component({
-  selector: 'app-manage-widgets',
-  templateUrl: './manage-widgets.component.html',
-  styleUrls: ['./manage-widgets.component.css'],
-  animations: [
-    slideInAndOutAnimations
-  ]
+    selector: 'app-manage-widgets',
+    templateUrl: './manage-widgets.component.html',
+    styleUrls: ['./manage-widgets.component.css'],
+    animations: [
+        slideInAndOutAnimations
+    ],
+    standalone: false
 })
 export class ManageWidgetsComponent implements OnInit {
 

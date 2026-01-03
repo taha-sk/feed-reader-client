@@ -8,9 +8,10 @@ import { Widget } from '../types/Widget';
 import { WidgetType } from '../types/WidgetType';
 
 @Component({
-  selector: 'app-widget-deck',
-  templateUrl: './widget-deck.component.html',
-  styleUrls: ['./widget-deck.component.css']
+    selector: 'app-widget-deck',
+    templateUrl: './widget-deck.component.html',
+    styleUrls: ['./widget-deck.component.css'],
+    standalone: false
 })
 export class WidgetDeckComponent implements OnInit {
 

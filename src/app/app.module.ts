@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,31 +19,25 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
 import { AddWidgetComponent } from './add-widget/add-widget.component';
 import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    NavBarComponent,
-    WidgetsComponent,
-    ManageWidgetsComponent,
-    SearchBarComponent,
-    WidgetDeckComponent,
-    WidgetListComponent,
-    AddWidgetComponent,
-    DeleteWidgetComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    httpInterceptorProviders
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LoginComponent,
+        HomeComponent,
+        NavBarComponent,
+        WidgetsComponent,
+        ManageWidgetsComponent,
+        SearchBarComponent,
+        WidgetDeckComponent,
+        WidgetListComponent,
+        AddWidgetComponent,
+        DeleteWidgetComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule], providers: [
+        httpInterceptorProviders,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

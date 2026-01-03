@@ -1,6 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FeedService } from '../services/feed.service';
 import { WidgetTypesService } from '../services/widget-types.service';
@@ -12,19 +12,20 @@ import { Widget } from '../types/Widget';
 import { WidgetType } from '../types/WidgetType';
 
 @Component({
-  selector: 'app-add-widget',
-  templateUrl: './add-widget.component.html',
-  styleUrls: ['./add-widget.component.css']
+    selector: 'app-add-widget',
+    templateUrl: './add-widget.component.html',
+    styleUrls: ['./add-widget.component.css'],
+    standalone: false
 })
 export class AddWidgetComponent implements OnInit {
 
   errorResponse: HttpClientError | undefined;
   paginatedWidgetTypes: HMPagination | undefined;
 
-  widgetType = new FormControl('', Validators.required);
+  widgetType = new UntypedFormControl('', Validators.required);
   selectedWidgetType: WidgetType | undefined;
 
-  widgetValue = new FormControl('', Validators.required);
+  widgetValue = new UntypedFormControl('', Validators.required);
 
   feedErrorResponse: HttpClientError | undefined;
   feedResponse: FeedResponse | undefined;
@@ -45,7 +46,7 @@ export class AddWidgetComponent implements OnInit {
     private widgetTypesService: WidgetTypesService,
     private feedService: FeedService,
     private widgetsService: WidgetsService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) { }
 
   ngOnInit(): void {
