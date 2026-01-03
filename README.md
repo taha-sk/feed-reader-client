@@ -1,6 +1,6 @@
 # feed-reader-client
 
-This is the client side of the Feed Reader application. 
+This is the client side of the Feed Reader application.
 
 The Feed Reader application is a secure web application where you manage feeds in widgets. Widgets are the short summaries of the parsed feeds. They display linked titles of the blog posts/news. This application is influenced from the old iGoogle implementation.
 
